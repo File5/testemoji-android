@@ -1,9 +1,7 @@
 package io.urobots.testemoji
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.text.TextPaint
 import android.util.AttributeSet
@@ -21,6 +19,8 @@ class CanvasView : View {
     private lateinit var textPaint: TextPaint
     private var textWidth: Float = 0f
     private var textHeight: Float = 0f
+
+    private val bitmap = Bitmap.createBitmap(640, 480, Bitmap.Config.ARGB_8888)
 
     /**
      * The text to draw
@@ -112,6 +112,10 @@ class CanvasView : View {
 
         // Update TextPaint and text measurements from attributes
         //invalidateTextPaintAndMeasurements()
+        Canvas(bitmap).apply {
+            drawPaint(Paint().apply { color = Color.WHITE })
+            drawText("Bitmap: ☺️\uD83C\uDFF4\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDE9\uD83C\uDDEA", 0.0f, 60.0f, textPaint)
+        }
     }
 
     private fun invalidateTextPaintAndMeasurements() {
@@ -128,5 +132,6 @@ class CanvasView : View {
 
         canvas.drawText("Hello, Canvas!", 48.0f, 60.0f, textPaint)
         canvas.drawText("Emojis: ☺️\uD83C\uDFF4\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDE9\uD83C\uDDEA", 48.0f, 2 * 60.0f, textPaint)
+        canvas.drawBitmap(bitmap, 48.0f, 4 * 60.0f, null)
     }
 }
