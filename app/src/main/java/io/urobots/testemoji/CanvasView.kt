@@ -115,6 +115,7 @@ class CanvasView : View {
         Canvas(bitmap).apply {
             drawPaint(Paint().apply { color = Color.WHITE })
             drawText("Bitmap: ☺️\uD83C\uDFF4\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDE9\uD83C\uDDEA", 0.0f, 60.0f, textPaint)
+            drawText("恭喜恭喜", 0.0f, 2 * 60.0f, textPaint)
         }
     }
 
@@ -130,8 +131,8 @@ class CanvasView : View {
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        canvas.drawText("Hello, Canvas!", 48.0f, 60.0f, textPaint)
-        canvas.drawText("Emojis: ☺️\uD83C\uDFF4\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDE9\uD83C\uDDEA", 48.0f, 2 * 60.0f, textPaint)
+        canvas.drawText("Hello, Canvas! 买下来！", 48.0f, 60.0f, textPaint)
+        canvas.drawText("Emojis: ☺️\uD83C\uDFF4\uD83C\uDDF7\uD83C\uDDFA\uD83C\uDDE9\uD83C\uDDEA恭喜恭喜", 48.0f, 2 * 60.0f, textPaint)
         canvas.drawBitmap(bitmap, 48.0f, 4 * 60.0f, null)
     }
 }
